@@ -14,7 +14,7 @@ The SDK supports interaction with WhiteBird in three modes:
 #### Presentation
 - You can review the visual flow in [Figma](https://www.figma.com/design/QhTl1W0BEncjvGXRu03UiW/SDK-flow?node-id=0-1&p=f)
 - Demo is available at: [SDK Demo](https://sdk.dev.wbdevel.net/v2.0/assets/sdk-demo/index.html)  
-  (```MerchantId: 4f19017b-0793-4591-94ff-610bb3c4665b```)
+  (```MerchantId: 11111111-1111-1111-1111-111111111111```)
 
 Descriptions of each mode are available [below](#brief-description-of-modes) in this documentation.
 
