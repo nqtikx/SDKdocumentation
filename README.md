@@ -402,49 +402,75 @@ wbExchangeSdk.setup({
 
 ## Optional SDK configuration parameters
 
-**externalClientId** - string, should be provided by the merchant to link WhiteBird users with merchant’s users.
+**externalClientId: string**  
+Links the WhiteBird user with the merchant user in partner systems.
 
-**email** - string, allows pre-filling the email field to reduce user actions during WhiteBird login.
+**email: string**  
+Pre-fills the email field in SDK authorization screens.
 
-**currencyAmount** - int, allows pre-filling the currency amount for the exchange.
+**currencyAmount: number**  
+Pre-fills source amount in exchange flow.
 
-**currencyFrom** - string from Currency enum. Allows pre-filling the currency to be exchanged from.
+**currencyFrom: Currency**  
+Preselects source currency in exchange flow.
 
-**disableCurrencyFrom** - bool, disable currencyFrom selector, also it blocks amount field (if it was provided).
+**disableCurrencyFrom: boolean**  
+Disables source currency selector. In current SDK behavior it also locks source amount editing when amount is prefilled.
 
-**currencyTo** - string from Currency enum. Allows pre-filling the currency to be exchanged to.
+**currencyTo: Currency**  
+Preselects destination currency in exchange flow.
 
-**disableCurrencyTo** - bool, disable currencyTo field, also it blocks cryptoWallet field (if it was provided).
+**disableCurrencyTo: boolean**  
+Disables destination currency selector. In current SDK behavior it also affects destination-dependent fields (including wallet input when applicable).
 
-**cryptoWallet** - string, allows pre-filling the user’s wallet field.
+**cryptoWallet: string**  
+Pre-fills destination crypto wallet address field.
 
-**showBackButtonOnHomePage** - bool, shows a "back" button in our UI and reacts to it using the onExit callback.
+**providerType: string**  
+Specifies the payment provider to be preselected on the exchange page.  
+For example, passing `ASSIST` or `ALFA` preselects that provider so the user does not choose it manually.
 
-**onExit** - () -> void, callback to handle "back" button press.
+**currencyToAmount: number**  
+Pre-fills target amount in exchange flow.
 
-**onOrderCreated** - ({orderId, internalCryptoAddress}) -> void, callback for order creation notification for merchant.
+**disableAmount: boolean**  
+Disables amount input editing in SDK UI.
 
-**onUserData** - ({ email, accessToken, refreshToken }) => {} -> callback is called in LoginMode when receiving user data from the SDK.
+**isAuthAgent: boolean**  
+Enables identification-agent behavior for partner-authenticated scenarios.
 
-**currencyToAmount** - int, allows pre-filling the target amount for exchange.
+**redirectUrl: string**  
+Sets redirect/return URL used by SDK in provider-specific payment navigation flows.
 
-**disableAmount** - bool, disables amount input editing in SDK UI.
+**startAppPage: string**  
+Defines initial SDK route/page to open first.
 
-**isAuthAgent** - bool, indicates partner identification-agent mode behavior.
+**refId: string**  
+Passes external reference id through SDK context.
 
-**redirectUrl** - string, URL used by SDK for redirect/navigation after specific flow actions.
+**showBackButtonOnHomePage: boolean**  
+Shows SDK back button on home page and emits exit event handling via callback.
 
-**startAppPage** - string, allows starting SDK from a specific internal page/state.
+**onExit: () => void**  
+Callback invoked when SDK back/exit action is triggered.
 
-**disableAddCard** - bool, disables add-card flow in SDK UI.
+**disableAddCard: boolean**  
+Disables add-card flow in SDK UI.
 
-**onOrderCompleted** - ({orderId, status}) -> void, callback for order completion notification for merchant.
+**onOrderCreated: ({ orderId, internalCryptoAddress }) => void**  
+Callback invoked when order is created in SDK flow.
 
-**refId** - string, optional external reference identifier passed through SDK context.
+**onOrderCompleted: ({ orderId, status }) => void**  
+Callback invoked when order reaches completion status in SDK flow.
 
-**debug** - bool, enables SDK debug logging in browser console.
+**onUserData: ({ email, accessToken, refreshToken }) => void**  
+`LoginMode` callback invoked when SDK returns user authorization payload.
 
-**isTgBot** - bool, enables Telegram WebApp-specific behavior for link opening.
+**debug: boolean**  
+Enables SDK debug logging in browser console.
+
+**isTgBot: boolean**  
+Enables Telegram WebApp-specific behavior for link opening and navigation.
 
 It is recommended to call `wbExchangeSdk.cleanup()` after finishing work with the SDK.
 
