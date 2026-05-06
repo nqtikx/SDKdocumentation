@@ -19,7 +19,7 @@ The SDK supports interaction with WhiteBird in three modes:
 * Demo is available at: [SDK Demo](https://sdk.dev.wbdevel.net/v2.0/assets/sdk-demo/index.html)\
   (`MerchantId: 11111111-1111-1111-1111-111111111111`)
 
-Descriptions of each mode are available [below](./#brief-description-of-modes) in this documentation.
+Descriptions of each mode are available [below](#brief-description-of-modes) in this documentation.
 
 ## High-level process overview
 
