@@ -344,20 +344,6 @@ wbExchangeSdk.setup({
 * !! The SDK does not modify the container’s styles, all container styling is handled by the application.
 * The SDK iframe takes up all available space within the container.
 
-## Merchant go-live checklist
-
-Use this checklist as the final setup gate before switching the merchant environment to production.
-
-1. **Initialize SDK:** production `merchantId` + `merchantPass` are configured, production SDK URL is used, container is at least `360px`, and `wbExchangeSdk.setup(...)` opens without runtime errors. [General flow details](./#general-whitebird-sdk-flow)
-2. **Resolve mode:** selected mode (`LoginMode`, `AuthMode`, `TokensMode`) matches the merchant architecture, and only mode-relevant params are passed (`accessToken`, `refreshToken`, `isAuthAgent`, callbacks). [Modes](./#brief-description-of-modes) | [Integration scenarios](./#integration-scenarios)
-3. **Apply status gates:** merchant UI and backend correctly process `NOT_VERIFIED`, `PENDING`, `VERIFIED`, `FROZEN`, `ARREST`, and crypto-test-required users. [Status routing table](./#status-routing-table)
-4. **Allow operations:** exchange and wallet actions are enabled only after all required gates pass; blocked states do not allow restricted operations. [General flow details](./#general-whitebird-sdk-flow)
-5. **Registration flow:** sign-up entry point is available, agreements are shown/accepted, email confirmation is completed, and phone verification for `countryCode == BY` is handled correctly.  [Registration API](<Registration API.md>)
-6. **Verification flow:** `agreements -> SumSub -> AML review` route works as expected, including `PENDING` waiting state and transition to `VERIFIED`. [Verification process](./#verification-process) | [Verification routing table](./#verification-routing-table)
-7. **Optional crypto test:** when `testingNeeded=true` and `testingCompleted=false`, user is routed to test gate and gains full access only after completion. [Verification routing table](./#verification-routing-table)
-8. **Authorization flow:** credentials login works, MFA/Captcha branches are supported when enabled, and token issuance completes without exposing merchant secrets in frontend. [Authorization process](./#authorization-process) | [Authorization routing table](./#authorization-routing-table)
-9. **Callbacks and token lifecycle:** `onLogin` / `onUserData`, `onOrderCreated`, `onOrderCompleted`, `onExit` are wired; token refresh/re-generation is handled for repeated session entry. [Optional SDK parameters](./#optional-sdk-configuration-parameters) | [Token generation API](<Registration API.md#id-5.-sdk-token-generation>)
-
 ## Optional SDK configuration parameters
 
 **externalClientId** - string, should be provided by the merchant to link WhiteBird users with merchant’s users.
