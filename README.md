@@ -25,7 +25,7 @@ Descriptions of each mode are available [below](#brief-description-of-modes) in 
 
 ### General WhiteBird SDK flow
 
-### One-line flow
+**One-line flow**
 
 `Initialize SDK -> resolve mode -> apply status gates -> allow operations`
 
@@ -35,7 +35,7 @@ Descriptions of each mode are available [below](#brief-description-of-modes) in 
 * **AuthMode:** SDK handles auth, returns tokens via `onLogin(...)`, then applies status gates.
 * **TokensMode:** SDK starts with provided tokens, skips login screen, then applies status gates.
 
-### Status routing table
+**Status routing table**
 
 | Condition                                                    | SDK behavior             | Result                                      |
 | ------------------------------------------------------------ | ------------------------ | ------------------------------------------- |
@@ -50,11 +50,11 @@ Descriptions of each mode are available [below](#brief-description-of-modes) in 
 
 ### Registration process
 
-### One-line flow
+**One-line flow**
 
 `Sign up -> agreements -> email confirmation -> conditional phone verification -> register -> auto-login`
 
-### Scenarios
+**Scenarios**
 
 * User submits sign-up form and accepts agreements.
 * Email confirmation is required.
@@ -62,7 +62,7 @@ Descriptions of each mode are available [below](#brief-description-of-modes) in 
 * For non-BY users, registration proceeds without mandatory SMS step.
 * On success, SDK performs login and continues with authorized session.
 
-### Registration routing table
+**Registration routing table**
 
 | Condition            | Behavior              | Result                     |
 | -------------------- | --------------------- | -------------------------- |
@@ -75,11 +75,11 @@ Descriptions of each mode are available [below](#brief-description-of-modes) in 
 
 ### Verification process
 
-### One-line flow
+**One-line flow**
 
 `Agreements -> SumSub KYC -> AML review -> verified status -> optional crypto-test gate`
 
-### Scenarios
+**Scenarios**
 
 * User confirms legal statements and offer agreement.
 * SDK runs SumSub (documents + liveness).
@@ -87,7 +87,7 @@ Descriptions of each mode are available [below](#brief-description-of-modes) in 
 * If approved, user becomes `VERIFIED`.
 * If crypto test is required, it must be completed before full access.
 
-### Verification routing table
+**Verification routing table**
 
 | Condition                     | Behavior             | Result                    |
 | ----------------------------- | -------------------- | ------------------------- |
@@ -100,11 +100,11 @@ Descriptions of each mode are available [below](#brief-description-of-modes) in 
 
 ### Authorization process
 
-### One-line flow
+**One-line flow**
 
 `Credentials -> MFA/Captcha checks -> token issuance -> status-based access`
 
-### Scenarios
+**Scenarios**
 
 * User signs in with email/password.
 * If MFA is enabled, 2FA code is required.
@@ -112,7 +112,7 @@ Descriptions of each mode are available [below](#brief-description-of-modes) in 
 * On success, tokens are issued.
 * Access to operations still depends on verification/compliance status.
 
-### Authorization routing table
+**Authorization routing table**
 
 | Condition           | Behavior         | Result                                 |
 | ------------------- | ---------------- | -------------------------------------- |
@@ -128,15 +128,15 @@ Terminology:
 * Client – the company integrating the SDK
 * User – the end user of the product
 
-### LoginMode
+**LoginMode**
 
 This mode is intended for user authentication _(authorization/registration/verification)_ via WhiteBird. It allows users to log in with WhiteBird credentials, perform exchange operations, view their transaction history, and contact support. Suitable for scenarios where you need to add the ability to deposit/withdraw funds or exchange cryptocurrency to fiat and back.
 
-### AuthMode
+**AuthMode**
 
 In this mode, the SDK is used for user authentication _(authorization/registration/verification)_ via WhiteBird and provides user authorization tokens, which can be used for interaction with the WhiteBird API. In this case, the client is **not** a _user identification agent_ for us, and implements their own custom UI for exchange, which makes operations through our API using the client’s authorization tokens.
 
-### TokensMode
+**TokensMode**
 
 This mode is designed to run our SDK with access tokens. It includes all the capabilities of LoginMode but removes WhiteBird authorization.\
 It implies a seamless transition from the client’s app to the WhiteBird platform and back. In this mode, the client is assumed to be a _user identification agent_ for us.
@@ -376,13 +376,13 @@ wbExchangeSdk.setup({
 
 ## Adding to a website
 
-### Connection via CDN
+**Connection via CDN**
 
 ```html
 <script src="https://sdk.dev.wbdevel.net/v2.0/integration/wbExchangeSdk-v001.js"></script>
 ```
 
-### Container
+**Container**
 
 * The SDK content is designed for mobile view – the container should not be less than 360px wide.
 * The SDK container can be placed anywhere on the website.
