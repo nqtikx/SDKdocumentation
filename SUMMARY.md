@@ -1,3 +1,3 @@
 # Table of contents
 
-* [SDKDocumentation](README.md)
+* [SDK Documentation](README.md)
